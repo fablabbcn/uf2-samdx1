@@ -1,4 +1,4 @@
-BOARD=zero
+BOARD=sck2.0
 -include Makefile.user
 include boards/$(BOARD)/board.mk
 CC=arm-none-eabi-gcc
@@ -81,7 +81,8 @@ SELF_SOURCES = $(COMMON_SRC) \
 OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SOURCES))
 SELF_OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SELF_SOURCES)) $(BUILD_PATH)/selfdata.o
 
-NAME=bootloader-$(BOARD)-$(UF2_VERSION_BASE)
+NAME=bootloader-$(BOARD)
+# NAME=bootloader-$(BOARD)-$(UF2_VERSION_BASE)
 EXECUTABLE=$(BUILD_PATH)/$(NAME).bin
 SELF_EXECUTABLE=$(BUILD_PATH)/update-$(NAME).uf2
 SELF_EXECUTABLE_INO=$(BUILD_PATH)/update-$(NAME).ino
