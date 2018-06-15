@@ -5,7 +5,7 @@
 #define PRODUCT_NAME "Smartcitizen Kit 2.0"
 #define VOLUME_LABEL "SCK-20"
 
-#define BOARD_ID "Sck-v2.0"
+#define BOARD_ID "SAMD21G18A-sck2-v2"
 
 //#define USB_VID 0x2341
 //#define USB_PID 0x024D
