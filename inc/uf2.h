@@ -28,7 +28,7 @@
 #endif
 
 #ifndef INDEX_URL
-#define INDEX_URL "https://github.com/fablabbcn/smartcitizen-kit-20/releases/latest"
+#define INDEX_URL "https://www.pxt.io/"
 #endif
 
 #include "uf2_version.h"
