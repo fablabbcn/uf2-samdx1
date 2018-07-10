@@ -7,8 +7,8 @@
 #define INDEX_URL "https://github.com/fablabbcn/smartcitizen-kit-20/releases/latest"
 #define BOARD_ID "SAMD21G18A-sck2-v2"
 
-//#define USB_VID 0x2341
-//#define USB_PID 0x024D
+#define USB_VID 0x1209
+#define USB_PID 0xCF20
 
 #define LED_PIN PIN_PA19
 #define LED_TX_PIN PIN_PA27
