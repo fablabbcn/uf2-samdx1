@@ -2,9 +2,9 @@
 #define BOARD_CONFIG_H
 
 #define VENDOR_NAME "Smartcitizen"
-#define PRODUCT_NAME "Smartcitizen Kit 2.0"
+#define PRODUCT_NAME "Smartcitizen Kit 2.1"
 #define VOLUME_LABEL "SCK-20"
-#define INDEX_URL "https://github.com/fablabbcn/smartcitizen-kit-20/releases/latest"
+#define INDEX_URL "https://github.com/fablabbcn/smartcitizen-kit-21/releases/latest"
 #define BOARD_ID "SAMD21G18A-sck2-v2"
 
 #define USB_VID 0x1209
