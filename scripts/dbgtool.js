@@ -72,8 +72,6 @@ function main() {
     if (process.platform == "win32")
         openocdBin += ".exe"
 
-    let zeroCfg = pkgDir + "hardware/samd/1.6.17/variants/arduino_zero/openocd_scripts/arduino_zero.cfg"
-
     let cmd = `telnet_port disabled; init; halt; `
     if (mode == "map")
         cmd += `set M(0) 0; mem2array M 8 ${addr} ${logSize}; resume; parray M; shutdown`
@@ -82,7 +80,8 @@ function main() {
 
     let args = ["-d2",
         "-s", openocdPath + "/share/openocd/scripts/",
-        "-f", zeroCfg,
+        "-f", "interface/cmsis-dap.cfg",
+        "-f", "target/at91samdXX.cfg",
         "-c", cmd]
 
     if (mode == "server") {
