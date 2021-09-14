@@ -3,7 +3,7 @@
 
 #define VENDOR_NAME "Smartcitizen"
 #define PRODUCT_NAME "Smartcitizen Kit 2.1"
-#define VOLUME_LABEL "SCK-20"
+#define VOLUME_LABEL "SCK-21"
 #define INDEX_URL "https://github.com/fablabbcn/smartcitizen-kit-21/releases/latest"
 #define BOARD_ID "SAMD21G18A-sck2-v2"
 
