@@ -1,4 +1,3 @@
-BOARD=sck2.1
 -include Makefile.user
 include boards/$(BOARD)/board.mk
 CC=../../sam/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc
