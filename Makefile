@@ -93,12 +93,13 @@ SELF_OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SELF_SOURCES)) $(BUILD_PAT
 
 NAME=bootloader-$(BOARD)
 EXECUTABLE=$(BUILD_PATH)/$(NAME).bin
+EXECUTABLE_HEX=$(BUILD_PATH)/$(NAME).hex
 SELF_EXECUTABLE=$(BUILD_PATH)/update-$(NAME).uf2
 SELF_EXECUTABLE_INO=$(BUILD_PATH)/update-$(NAME).ino
 
 SUBMODULES = lib/uf2/README.md
 
-all: $(SUBMODULES) dirs $(EXECUTABLE) $(SELF_EXECUTABLE)
+all: $(SUBMODULES) dirs $(EXECUTABLE) $(EXECUTABLE_HEX) $(SELF_EXECUTABLE)
 
 r: run
 b: burn
@@ -165,6 +166,12 @@ $(EXECUTABLE): $(OBJECTS)
 	@echo
 	-@arm-none-eabi-size $(BUILD_PATH)/$(NAME).elf | awk '{ s=$$1+$$2; print } END { print ""; print "Space left: " ($(BOOTLOADER_SIZE)-s) }'
 	@echo
+
+$(EXECUTABLE_HEX): $(OBJECTS)
+	$(CC) -L$(BUILD_PATH) $(LDFLAGS) \
+		 -T$(LINKER_SCRIPT) \
+		 -Wl,-Map,$(BUILD_PATH)/$(NAME).map -o $(BUILD_PATH)/$(NAME).elf $(OBJECTS)
+	arm-none-eabi-objcopy -O ihex $(BUILD_PATH)/$(NAME).elf $@
 
 $(BUILD_PATH)/uf2_version.h: Makefile
 	echo "#define UF2_VERSION_BASE \"$(UF2_VERSION_BASE)\""> $@
